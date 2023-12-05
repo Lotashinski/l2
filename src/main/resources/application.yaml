@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+logging:
+  level:
+    root: debug
+
+spring:
+  profiles:
+    active:
+      - dev
+
+  datasource:
+    username: les2
+    password: secret
+    url: jdbc:mysql://localhost:3306/les2
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        hbm2ddl:
+          auto: update
+
+app:
+  file:
+    storage:
+      path: C:\Users\lat44\OneDrive\Рабочий стол\images

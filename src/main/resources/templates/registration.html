@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form method="post" th:object="${signUp}">
+    <h2>
+        Registration:
+    </h2>
+
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+    <div>
+        <span th:if='${email_exists == true}'>Email exists</span>
+        <label for="email">Email:</label>
+        <input id="email" type="text" th:field="${signUp.email}" required/>
+    </div>
+
+    <div>
+        <span th:if='${password_mismatch == true}'>Password mismatch</span>
+        <label for="password">Password:</label>
+        <input id="password" type="password" th:field="${signUp.password}" required/>
+    </div>
+
+    <div>
+        <label for="password_rep">Repeat password:</label>
+        <input id="password_rep" type="password" th:field="${signUp.passwordRepeat}" required/>
+    </div>
+
+    <input type="submit" value="Send">
+</form>
+</body>
+</html>
